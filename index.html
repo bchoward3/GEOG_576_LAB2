@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="" />
     <!--ESRI calls-->
-    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/dark/main.css">
     <script src="https://js.arcgis.com/4.25/"></script>
     <style>
       html, body, #viewDiv {
@@ -22,11 +22,11 @@
         "esri/Map",
         "esri/views/MapView"
       ], function(esriConfig, Map, MapView) {
-        esriConfig.apiKey = "AAPTaiai81G15UIqi0ovzul74ag..wyIzVv1v0cI0PETk2QJn-L4RP5sACqA6jJoJI3PV-ZTuXba6p3r9SZnVAzhgtcqppFaY8_weV-dxuoXeNoOdbcYpC9wbs09_1SSLkHQhPC_MXDpNpjQ6lA1xQPIIAI1yfPv3fyQPXrI7ZM_7YipRuTzOAcDhWF6p_xaORSnNaX1Z1eiMt2QMM2azIlsKU9SxkLiI1Py8q4hGP6AdZB3Q4WrwjCVL-ZMWK7NMKb_mpJqj5k7JxCLUPDxnQfhKvwNSPm1uCXI.AT1_KbZ6FTJb"
+        esriConfig.apiKey = "AAPTaiai81G15UIqi0ovzul74ag..wyIzVv1v0cI0PETk2QJn-L4RP5sACqA6jJoJI3PV-ZTuXba6p3r9SZnVAzhgtcqppFaY8_weV-dxuoXeNoOdbcYpC9wbs09_1SSLkHQhPC_MXDpNpjQ6lA1xQPIIAI1yfPv3fyQPXrI7ZM_7YipRuTzOAcDhWF6p_xaORSnNaX1Z1eiMt2QMM2azIlsKU9SxkLiI1Py8q4hGP6AdZB3Q4WrwjCVL-ZMWK7NMKb_mpJqj5k7JxCLUPDxnQfhKvwNSPm1uCXI.AT1_KbZ6FTJb";
 
         // Create the Map instance
         const map = new Map({
-          basemap: "dark-gray-3d" // Map service style
+          basemap: "arcgis-navigation-night" // Night navigation basemap
         });
 
         // Create the MapView container rendering our map
