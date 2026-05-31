@@ -26,14 +26,14 @@
 
         // Create the Map instance
         const map = new Map({
-          basemap: "satellite" // outdoor basemap
+          basemap: "outdoor" // outdoor basemap
         });
 
         // Create the MapView container rendering our map
         const view = new MapView({
           map: map,
           center: [-81.1329, 32.0043], // Longitude, latitude format
-          zoom: 7, // Zoom scale level
+          zoom: 13, // Zoom scale level
           container: "viewDiv" // ID of our body div
         });
       });
