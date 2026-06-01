@@ -17,38 +17,47 @@
       }
     </style>
     <script>
-      require([
-        "esri/config",
-        "esri/Map",
-        "esri/views/MapView",
-        "esri/widgets/BasemapGallery",
-      ], function(esriConfig, Map, MapView, BasemapGallery) {
-        esriConfig.apiKey = "AAPTaHNXmh4V2CMc6iBCUGvJBbA..ThrLqWMUNnOYgz2GvOcn96fdx1TMwdFQ4wGX5-xVNmXkfEbnKkGV_cZjc0oLC4MCPh7aCg-W1zPuej6RCSxj657uz_e3AKZQw5XJYpLpS1qUMUDi6_6SAkNlYxmx7IrZIEBgUUkNhC5JQ7CMlIGTOnQCVL8bLlnENA91H6DHqItaruwtSuHXQ8FFK3PAp9IOWAb94W3vhRw_CKxVzgY4dg_esiJMUocbnD0Ffjpk9M8BsBOI1nQ58ovAJaM1X33-s6JQsrU.AT1_gzKnMnbn";
+  require([
+    "esri/config",
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/widgets/BasemapGallery",
+    "esri/widgets/Locate",
+    "esri/Graphic"
+  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic) {
 
-        // Create the Map instance
-        const map = new Map({
-          basemap: "dark-gray" // outdoor basemap
-        });
+    esriConfig.apiKey = "AAPTaHNXmh4V2CMc6iBCUGvJBbA..ThrLqWMUNnOYgz2GvOcn96fdx1TMwdFQ4wGX5-xVNmXkfEbnKkGV_cZjc0oLC4MCPh7aCg-W1zPuej6RCSxj657uz_e3AKZQw5XJYpLpS1qUMUDi6_6SAkNlYxmx7IrZIEBgUUkNhC5JQ7CMlIGTOnQCVL8bLlnENA91H6DHqItaruwtSuHXQ8FFK3PAp9IOWAb94W3vhRw_CKxVzgY4dg_esiJMUocbnD0Ffjpk9M8BsBOI1nQ58ovAJaM1X33-s6JQsrU.AT1_gzKnMnbn";
 
-        // Create the MapView container rendering our map
-        const view = new MapView({
-          map: map,
-          center: [-81.1329, 32.0043], // Longitude, latitude format
-          zoom: 11, // Zoom scale level
-          container: "viewDiv" // ID of our body div
-        });
-        //Creating basemap Gallery per the ESRI documentation
-        const basemapGallery = new BasemapGallery({
-          view: view,
-          container: document.createElement("div")
-        });
+    const map = new Map({
+      basemap: "dark-gray"
+    });
 
-        // Add the widget to the top-right corner of the view
-        view.ui.add(basemapGallery, {
-          position: "top-right"
-        });
-      });
-    </script>
+    const view = new MapView({
+      map: map,
+      center: [-81.1329, 32.0043],
+      zoom: 11,
+      container: "viewDiv"
+    });
+
+    const basemapGallery = new BasemapGallery({
+      view: view,
+      container: document.createElement("div")
+    });
+
+    view.ui.add(basemapGallery, {
+      position: "top-right"
+    });
+
+    const locateWidget = new Locate({
+      view: view,
+      graphic: new Graphic({
+        symbol: { type: "simple-marker" }
+      })
+    });
+
+    view.ui.add(locateWidget, "top-right");
+  });
+  </script>
   </head>
   <body>
     <h1>Hello, world! This is GEOG 576 Lab 1.</h1>
