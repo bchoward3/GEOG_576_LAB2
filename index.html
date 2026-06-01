@@ -47,7 +47,7 @@
     view.ui.add(basemapGallery, {
       position: "top-right"
     });
-
+    //Adding locate widget per the documentation along with the graphic marker
     const locateWidget = new Locate({
       view: view,
       graphic: new Graphic({
@@ -55,7 +55,7 @@
       })
     });
 
-    view.ui.add(locateWidget, "top-right");
+    view.ui.add(locateWidget, "top-left");
   });
   </script>
   </head>
