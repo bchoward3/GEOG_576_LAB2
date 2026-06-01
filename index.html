@@ -23,8 +23,9 @@
     "esri/views/MapView",
     "esri/widgets/BasemapGallery",
     "esri/widgets/Locate",
-    "esri/Graphic"
-  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic) {
+    "esri/Graphic",
+    "esri/widgets/Search",
+  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search) {
 
     esriConfig.apiKey = "AAPTaHNXmh4V2CMc6iBCUGvJBbA..ThrLqWMUNnOYgz2GvOcn96fdx1TMwdFQ4wGX5-xVNmXkfEbnKkGV_cZjc0oLC4MCPh7aCg-W1zPuej6RCSxj657uz_e3AKZQw5XJYpLpS1qUMUDi6_6SAkNlYxmx7IrZIEBgUUkNhC5JQ7CMlIGTOnQCVL8bLlnENA91H6DHqItaruwtSuHXQ8FFK3PAp9IOWAb94W3vhRw_CKxVzgY4dg_esiJMUocbnD0Ffjpk9M8BsBOI1nQ58ovAJaM1X33-s6JQsrU.AT1_gzKnMnbn";
 
@@ -54,8 +55,16 @@
         symbol: { type: "simple-marker" }
       })
     });
-
     view.ui.add(locateWidget, "top-left");
+    //Adding the search widget per the documentation
+    const searchWidget = new Search({
+    view: view
+    });
+    // Adds the search widget below other elements in the top left corner of the view
+    view.ui.add(searchWidget, {
+      position: "bottom-left",
+      index: 2
+    });
   });
   </script>
   </head>
