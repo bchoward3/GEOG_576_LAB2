@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <!--ESRI calls-->
     <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/themes/dark/main.css">
-    <script src="https://js.arcgis.com/4.3/"></script>
+    <script src="https://js.arcgis.com/4.25/"></script>
     <style>
       html, body, #viewDiv {
         padding: 0;
@@ -25,8 +25,10 @@
     "esri/widgets/Locate",
     "esri/Graphic",
     "esri/widgets/Search",
-    "esri/layers/GraphicsLayer" 
-  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer) {
+    "esri/layers/GraphicsLayer" ,
+    "esri/geometry/Point",
+    "esri/symbols/SimpleMarkerSymbol"
+  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer, Point, SimpleMarkerSymbol) {
 
     esriConfig.apiKey = "AAPTa7WWEMo9Litshe_RCrMPRfA..yeI8LR_CMpFupvlrUJw3fi0kG2eX-IkowyMn_mcFfvUE1vSLrPkrIxhZKx_NzauiWVQwmqtUVs-g9sWEVrhUkUIMdDsT-dW-OfLWvJFgSEJt7LyibSBhpQD1rD0CLkQbWUHz9Jx4FZ-m0Zn6hUupQacC-IImgQF0LYlc06R7dzl37yrITFLItINCGogwgZMgpTJXZa_B1-mqMTD2aDM35EnzrTZgzjCG_T4y0Qf8kQp-txCSRTZBMnHC2Tt-e2ZmrkHMAAI.AT1_lfgE39am";
 
@@ -73,11 +75,11 @@
 
     const point = { //Create a point  
       type: "point",  
-      longitude: -81.0953898,    //long lat of Stevie Ray Vaughan Statue
+      longitude: -81.0953898,    //Forsyth Park
       latitude: 32.0674305
     };
 
-    const simpleMarkerSymbol = {  
+    const simpleMarkerSymbol = new SimpleMarkerSymbol {  
       type: "simple-marker",  
       color: [0, 0, 150],  // 
       outline: {  
