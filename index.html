@@ -24,8 +24,9 @@
     "esri/widgets/BasemapGallery",
     "esri/widgets/Locate",
     "esri/Graphic",
-    "esri/widgets/Search"
-  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search) {
+    "esri/widgets/Search",
+    "esri/layers/GraphicsLayer" 
+  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer) {
 
     esriConfig.apiKey = "AAPTa7WWEMo9Litshe_RCrMPRfA..yeI8LR_CMpFupvlrUJw3fi0kG2eX-IkowyMn_mcFfvUE1vSLrPkrIxhZKx_NzauiWVQwmqtUVs-g9sWEVrhUkUIMdDsT-dW-OfLWvJFgSEJt7LyibSBhpQD1rD0CLkQbWUHz9Jx4FZ-m0Zn6hUupQacC-IImgQF0LYlc06R7dzl37yrITFLItINCGogwgZMgpTJXZa_B1-mqMTD2aDM35EnzrTZgzjCG_T4y0Qf8kQp-txCSRTZBMnHC2Tt-e2ZmrkHMAAI.AT1_lfgE39am";
 
@@ -67,6 +68,30 @@
       position: "top-left",
     });
 
+    const GraphicsLayer = new GraphicsLayer();
+    map.add(GraphicsLayer);
+
+    const point = { //Create a point  
+      type: "point",  
+      longitude: -81.0953898,    //long lat of Stevie Ray Vaughan Statue
+      latitude: 32.0674305
+    };
+
+    const simpleMarkerSymbol = {  
+      type: "simple-marker",  
+      color: [0, 0, 150],  // 
+      outline: {  
+        color: [255, 255, 255], // White  
+        width: 1
+      }  
+    };
+
+    const pointGraphic = new Graphic({  
+      geometry: point,  
+      symbol: simpleMarkerSymbol  
+    });
+
+    graphicsLayer.add(pointGraphic);
 
   });
   </script>
