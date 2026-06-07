@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="" />
     <!--ESRI calls-->
-    <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/themes/dark/main.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/dark/main.css">
     <script src="https://js.arcgis.com/4.25/"></script>
     <style>
       html, body, #viewDiv {
@@ -79,14 +79,14 @@
       latitude: 32.0674305
     };
 
-    const simpleMarkerSymbol = new SimpleMarkerSymbol {  
+    const simpleMarkerSymbol = new SimpleMarkerSymbol ({  
       type: "simple-marker",  
       color: [0, 0, 150],  // 
       outline: {  
         color: [255, 255, 255], // White  
         width: 1
-      }  
-    };
+      }
+    });
 
     const pointGraphic = new Graphic({  
       geometry: point,  
