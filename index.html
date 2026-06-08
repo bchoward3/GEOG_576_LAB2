@@ -208,6 +208,7 @@
         "type": "simple",
         "symbol": {
           "type": "picture-marker",
+          // Hospital icon attributed to Icon Packs (https://www.iconpacks.net/free-icon/airport-location-2959.html)
           "url": "https://raw.githubusercontent.com/bchoward3/GEOG_576_LAB2/main/hospital1.png",
           "width": "18px",
           "height": "18px"
@@ -235,6 +236,7 @@
         "type": "simple",
         "symbol": {
           "type": "picture-marker",
+          // Airport icon attributed to Icon Packs (https://www.iconpacks.net/free-icon/hospital-location-pin-10718.html)
           "url": "https://raw.githubusercontent.com/bchoward3/GEOG_576_LAB2/main/airport1.png",
           "width": "18px",
           "height": "18px"
@@ -244,6 +246,7 @@
     const featurelayer2 = new FeatureLayer ({
       url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports3212/FeatureServer",
       renderer: airportRenderer,
+      definitionExpression: "Fac_Type = 'AIRPORT'" //adding sql to filter for airports per lesson instructions
       // Adding the pop up 
       outFields: ["Fac_Type","City","Owner_Phon"],
       popupTemplate: popuppolygon2,
