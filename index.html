@@ -99,7 +99,7 @@
         Description: "Setting for the park bench scenes in Forrest Gump."
     }
 
-    //create the point
+    // Creating the point
     const pointGraphic = new Graphic({  
       geometry: point,  
       symbol: simpleMarkerSymbol,
@@ -109,7 +109,7 @@
     });
     graphicsLayer.add(pointGraphic);
 
-    //create polyline for W Bay St in Savannah
+    //create polyline for W Bay St in Savannah (what passes for Main St here)
     const polyline = new Polyline({
       paths: [
         [
@@ -127,13 +127,30 @@
       width: 2
     };
 
-    // creating graphic for the line
+    // I copied the same concept from the point pop up for this pop up. 
+    const polylineAttributes = {
+      Name: "W Bay ST",
+      Description: "Main Street equivalent for Savannah."
+    };
+
+    const polylinePopupTemplate = {
+      title: "{Name}",
+      content: "{Description}"
+    };
+
+
+    // Creating graphic for the line
     const polylineGraphic = new Graphic({
       geometry: polyline,
-      symbol: simpleLineSymbol
+      symbol: simpleLineSymbol,
+      attributes: polylineAttributes,      // ✅ add this
+      popupTemplate: polylinePopupTemplate  // ✅ add this
     });
 
-// 3. Add it to the layer
+    //I copied my pop-up code from above to create a popup for the line
+
+
+// Add it to the layer
 graphicsLayer.add(polylineGraphic);
 
   });
