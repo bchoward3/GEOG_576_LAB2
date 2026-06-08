@@ -219,14 +219,14 @@
     // Creating the pop up layer and adding several fields for the pop up (airport type, city/town and telephone number)
     const popuppolygon2 = {
       "title": "Airports",
-      "content": "<b>Facility type:</b> {Fac_Type}<br><b>City:</b> {City}<br><b>Owner phone number: {Owner_Phon}<br>"
+      "content": "<b>Facility type:</b> {Fac_Type}<br><b>City:</b> {City}<br><b>Owner phone number:</b> {Owner_Phon}<br>"
     }
 
     //Adding the airports feature layer
     const featurelayer2 = new FeatureLayer ({
       url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports3212/FeatureServer",
       // Adding the pop up 
-      outFields: ["USER_Facility_Name","USER_City_Town","USER_Telephone_Number"],
+      outFields: ["Fac_Type","City","Owner_Phon"],
       popupTemplate: popuppolygon2,
       renderer: {
         type: "simple",
