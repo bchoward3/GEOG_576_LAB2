@@ -246,7 +246,7 @@
     const featurelayer2 = new FeatureLayer ({
       url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports3212/FeatureServer",
       renderer: airportRenderer,
-      definitionExpression: "Fac_Type = 'AIRPORT'" //adding sql to filter for airports per lesson instructions
+      definitionExpression: "Fac_Type = 'AIRPORT'", //adding sql to filter for airports per lesson instructions
       // Adding the pop up 
       outFields: ["Fac_Type","City","Owner_Phon"],
       popupTemplate: popuppolygon2,
