@@ -204,25 +204,24 @@
       "content": "<b>Name:</b> {USER_Facility_Name}<br><b>City or town:</b> {USER_City_Town}<br><b>Facility phone number:</b> {USER_Telephone_Number}<br>"
     }
 
+    const airportRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://github.com/bchoward3/GEOG_576_LAB2/blob/532aa99cbe71f415c9b3570b5819b7169b8817f8/noun-airplane-8161404%20(1).png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
+
+
     //Adding the hospitals feature layer
     const featurelayer = new FeatureLayer ({
       url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Medicare_Hospitals/FeatureServer",
-
+      renderer: airportRenderer
       // Adding the pop up 
       outFields: ["USER_Facility_Name","USER_City_Town","USER_Telephone_Number"],
       popupTemplate: popuppolygon,
-      renderer: {
-        type: "simple",
-        symbol: {
-          type: "simple-marker",
-          color: [255, 0, 0],
-          size: 8,
-          outline: {
-            color: [255, 255, 255],
-            width: 1
-          }
-        }
-      }
     });
     
     //Add airports feature layer to map
