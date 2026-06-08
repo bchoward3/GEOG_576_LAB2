@@ -204,14 +204,24 @@
       "content": "<b>Name:</b> {USER_Facility_Name}<br><b>City or town:</b> {USER_City_Town}<br><b>Facility phone number:</b> {USER_Telephone_Number}<br>"
     }
 
+    const hospitalRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://github.com/bchoward3/GEOG_576_LAB2/blob/main/hospital.png?raw=true",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
+
     //Adding the hospitals feature layer
     const featurelayer = new FeatureLayer ({
       url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Medicare_Hospitals/FeatureServer",
+      renderer: hospitalRenderer,
       // Adding the pop up 
       outFields: ["USER_Facility_Name","USER_City_Town","USER_Telephone_Number"],
       popupTemplate: popuppolygon,
     });
-    
     //Add hospitals feature layer to map
   map.add(featurelayer);
 
@@ -225,7 +235,7 @@
         "type": "simple",
         "symbol": {
           "type": "picture-marker",
-          "url": "https://github.com/bchoward3/GEOG_576_LAB2/blob/main/noun-airplane-8161404%20(1).png?raw=true",
+          "url": "https://github.com/bchoward3/GEOG_576_LAB2/blob/main/airport.png?raw=true",
           "width": "18px",
           "height": "18px"
         }
