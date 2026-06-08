@@ -207,11 +207,11 @@
     //Adding the Colleges & Universities feature layer
     const featurelayer = new FeatureLayer ({
       url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer"
-    });
 
-    // Adding the pop up 
-    outFields: ["NAME","TOT_ENROLL"],
-    popupTemplate: popuppolygon
+      // Adding the pop up 
+      outFields: ["NAME","TOT_ENROLL"],
+      popupTemplate: popuppolygon
+    });
     
     //Add feature layer to map
   map.add(featurelayer);
