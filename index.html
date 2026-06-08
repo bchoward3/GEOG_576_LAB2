@@ -225,10 +225,19 @@
     //Adding the airports feature layer
     const featurelayer2 = new FeatureLayer ({
       url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports3212/FeatureServer",
-
       // Adding the pop up 
       outFields: ["USER_Facility_Name","USER_City_Town","USER_Telephone_Number"],
       popupTemplate: popuppolygon2
+      renderer: {
+        type: "simple",
+        symbol: {
+          type: "picture-marker",
+          // Airplane icon attribute to MHDK of the Noun Project
+          url: "https://thenounproject.com/browse/icons/term/airplane/" target="_blank" title="Airplane Icons",
+          width: "14px",
+          height: "14px"
+        }
+      }
     });
     
     //Add feature layer to map
