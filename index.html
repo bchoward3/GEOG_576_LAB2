@@ -28,9 +28,10 @@
     "esri/layers/GraphicsLayer" ,
     "esri/geometry/Point",
     "esri/symbols/SimpleMarkerSymbol",
-    "esri/geometry/Polyline"
+    "esri/geometry/Polyline",
+    "esri/geometry/Polygon"
 
-  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer, Point, SimpleMarkerSymbol, Polyline) {
+  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer, Point, SimpleMarkerSymbol, Polyline, Polygon) {
 
     esriConfig.apiKey = "AAPTazVmijAZJOjPyl5hCMPDqAA..zs1UyCs6v5nYRp3ZLCrSdJOsU9zc1sFBjXYsgR9WZUMyR55XSkc3kkwwSVYP_eE28kwGrEVlKcTsFjjRmQ1zv1AK99gVXuateIyat5P_13Ly8TIpkWfc4hFsjJ3n865y_niBHTqRPUHJGuyUTOiK3uyifmZ5tSMqvittvIizKFNHVErA_SdsGBEIihl3ptOrvvOIW4jlcqoCmIewexn5JDyToQEwHy0PtJJ3PgbOtGKo_UHWa2LkyLOpS3UdYCVW71kW5mk.AT1_l2BfxoE2";
 
@@ -152,6 +153,49 @@
 
 // Add it to the layer
 graphicsLayer.add(polylineGraphic);
+
+    // Define the polygon geometry (roughly Hunter Army Airfield)
+    const polygon = {
+      type: "polygon",
+      rings: [
+        [-81.1690196, 32.0133738],
+        [-81.1411186, 32.0275405],
+        [-81.1225448, 32.0124473],
+        [-81.1403532, 32.0027872],
+        [-81.1690196, 32.0133738]  // close the ring by repeating the first point
+      ]
+    };
+
+    // Fill color
+    const simpleFillSymbol = {
+      type: "simple-fill",
+      color: [0, 0, 255, 0.3],
+      outline: {
+        color: [0, 0, 255],
+        width: 1
+      }
+    };
+
+    // I copied the same concept from the point pop up for this pop up. 
+    const polygonAttributes = {
+      Name: "Hunter Army Airfiled",
+      Description: "Military installation in Savannah."
+    };
+
+    const polygonPopupTemplate = {
+      title: "{Name}",
+      content: "{Description}"
+    };
+
+    // Add the polygon
+    const polygonGraphic = new Graphic({
+      geometry: polygon,
+      symbol: simpleFillSymbol,
+      attributes: polygonAttributes,
+      popupTemplate: polygonPopupTemplate,
+    });
+
+graphicsLayer.add(polygonGraphic);
 
   });
   </script>
