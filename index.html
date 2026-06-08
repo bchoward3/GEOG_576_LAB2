@@ -82,13 +82,14 @@
 
     const simpleMarkerSymbol = new SimpleMarkerSymbol ({
       style: "triangle",
-      color: [0, 0, 100],  // 
+      color: [0, 128, 0],  // 
       outline: {  
         color: [255, 255, 255], // White  
         width: 3
       }
     });
 
+    //creating the pop-up attributes for Forsyth Park
     const popupTemplate = {
     title: "{Name}",
     content: "{Description}"
@@ -108,7 +109,7 @@
     });
     graphicsLayer.add(pointGraphic);
 
-    //create polyline for River Street in Savannah
+    //create polyline for W Bay St in Savannah
     const polyline = new Polyline({
       paths: [
         [
