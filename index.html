@@ -200,16 +200,16 @@
 
     // Creating the pop up layer
     const popuppolygon = {
-      "title": "EDUs",
-      "content": "<b>Name:</b> {NAME}<br><b>Total Enrollment:</b> {TOT_ENROLL}<br>"
+      "title": "Hospitals",
+      "content": "<b>Name:</b> {USER_Facility_Name}<br><b>City or town:</b> {USER_City_Town}<br><b>Facility phone number: {USER_Telephone_Number}<br>"
     }
 
-    //Adding the Colleges & Universities feature layer
+    //Adding the hospitals feature layer
     const featurelayer = new FeatureLayer ({
-      url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer",
+      url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Medicare_Hospitals/FeatureServer",
 
       // Adding the pop up 
-      outFields: ["NAME","TOT_ENROLL"],
+      outFields: ["USER_Facility_Name","USER_City_Town","USER_Telephone_Number"],
       popupTemplate: popuppolygon
     });
     
