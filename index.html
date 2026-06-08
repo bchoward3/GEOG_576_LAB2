@@ -86,11 +86,6 @@
       }
     });
 
-    const pointGraphic = new Graphic({  
-      geometry: point,  
-      symbol: simpleMarkerSymbol  
-    });
-
     const popupTemplate = {
     title: "{Name}",
     content: "{Description}"
@@ -99,6 +94,16 @@
         Name: "Forsyth Park",
         Description: "Setting for the park bench scenes in Forrest Gump."
     }
+
+    //create the point
+    const pointGraphic = new Graphic({  
+      geometry: point,  
+      symbol: simpleMarkerSymbol,
+
+      attributes: attributes,
+      popupTemplate: popupTemplate
+    });
+
 
     graphicsLayer.add(pointGraphic);
 
