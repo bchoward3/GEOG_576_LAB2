@@ -198,7 +198,7 @@
 
   graphicsLayer.add(polygonGraphic);
 
-    // Creating the pop up layer
+    // Creating the pop up layer and adding several fields for the pop up (hospital name, city/town and telephone number)
     const popuppolygon = {
       "title": "Hospitals",
       "content": "<b>Name:</b> {USER_Facility_Name}<br><b>City or town:</b> {USER_City_Town}<br><b>Facility phone number: {USER_Telephone_Number}<br>"
@@ -213,8 +213,27 @@
       popupTemplate: popuppolygon
     });
     
-    //Add feature layer to map
+    //Add airports feature layer to map
   map.add(featurelayer);
+
+    // Creating the pop up layer and adding several fields for the pop up (airport type, city/town and telephone number)
+    const popuppolygon2 = {
+      "title": "Airports",
+      "content": "<b>Facility type:</b> {Fac_Type}<br><b>City:</b> {City}<br><b>Owner phone number: {Owner_Phon}<br>"
+    }
+
+    //Adding the airports feature layer
+    const featurelayer2 = new FeatureLayer ({
+      url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Medicare_Hospitals/FeatureServer",
+
+      // Adding the pop up 
+      outFields: ["USER_Facility_Name","USER_City_Town","USER_Telephone_Number"],
+      popupTemplate: popuppolygon2
+    });
+    
+    //Add feature layer to map
+  map.add(featurelayer2);
+
 
 
   });
