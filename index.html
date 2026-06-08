@@ -248,7 +248,7 @@
       symbol: {
         type: "text",
         color: "#FFFFFF",
-        haloColor: "#5E8D74",
+        haloColor: "#0000FF",
         haloSize: "2px",
         font: {
           size: "12px",
@@ -276,7 +276,55 @@
     //Add feature layer to map
   map.add(featurelayer2);
 
+    // Creating the pop up layer and adding several fields for the pop up (heliport type, city/town and telephone number)
+    const popuppolygon3 = {
+      "title": "Heliports",
+      "content": "<b>Facility type:</b> {Fac_Type}<br><b>City:</b> {City}<br><b>Owner phone number:</b> {Owner_Phon}<br>"
+    }
+    // Heliport renderer added per lesson documntation
+    const heliportRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          // Airport icon attributed to PNG Tree (https://pngtree.com/so/helipad-icon)
+          "url": "https://raw.githubusercontent.com/bchoward3/GEOG_576_LAB2/main/heliport.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
 
+    //const to make the heliport labels
+    const heliportLabels = {
+      symbol: {
+        type: "text",
+        color: "#FFFFFF",
+        haloColor: "#0000FF",
+        haloSize: "2px",
+        font: {
+          size: "12px",
+          family: "Noto Sans",
+          style: "italic",
+          weight: "normal"
+        }
+      },
+      labelPlacement: "above-center",
+      labelExpressionInfo: {
+        expression: "$feature.Fac_Name"
+      }
+    };
+    //Adding the heliports feature layer
+    const featurelayer3 = new FeatureLayer ({
+      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports3212/FeatureServer",
+      renderer: heliportRenderer,
+      definitionExpression: "Fac_Type = 'HELIPORT'", //adding sql to filter for airports per lesson instructions
+      labelingInfo: [heliportLabels], //adding the labels per lesson instructions
+      // Adding the pop up 
+      outFields: ["Fac_Type","City","Owner_Phon"],
+      popupTemplate: popuppolygon3,
+    });
+    
+    //Add heliport feature layer to map
+  map.add(featurelayer3);
 
   });
   </script>
